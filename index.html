@@ -3345,12 +3345,15 @@
                                     },
                                     body: JSON.stringify({
                                         text: text,
-                                        model_id: "eleven_monolingual_v1",
+                                        model_id: "eleven_turbo_v2_5", // newer, faster model
                                         voice_settings: { stability: 0.5, similarity_boost: 0.5 }
                                     })
                                 });
                                 
-                                if (!response.ok) throw new Error('ElevenLabs API Error');
+                                if (!response.ok) {
+                                    const errData = await response.json();
+                                    throw new Error(errData.detail?.message || errData.detail || 'Unknown API Error');
+                                }
                                 
                                 const audioBlob = await response.blob();
                                 const audioUrl = URL.createObjectURL(audioBlob);
