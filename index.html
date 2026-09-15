@@ -3252,6 +3252,19 @@
                 regenBtn.onclick = () => regenerateMessage();
                 toolsRow.appendChild(regenBtn);
 
+                const copyAiBtn = document.createElement('button');
+                const copySvg = `<svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>`;
+                copyAiBtn.innerHTML = copySvg + ' Copy';
+                copyAiBtn.style.cssText = 'background: none; border: none; color: var(--text-muted); cursor: pointer; padding: 4px; border-radius: 4px; margin-right: 10px; font-size: 0.75rem; display: flex; align-items: center; gap: 4px;';
+                copyAiBtn.title = 'Copy response';
+                copyAiBtn.onclick = () => {
+                    navigator.clipboard.writeText(bubble.innerText).then(() => {
+                        copyAiBtn.innerHTML = `✓ Copied`;
+                        setTimeout(() => { copyAiBtn.innerHTML = copySvg + ' Copy'; }, 1500);
+                    });
+                };
+                toolsRow.appendChild(copyAiBtn);
+
                 const speakerBtn = document.createElement('button');
                 speakerBtn.className = 'tts-btn';
                 const playSvg = `<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M14,3.23V5.29C16.89,6.15 19,8.83 19,12C19,15.17 16.89,17.84 14,18.7V20.77C18,19.86 21,16.28 21,12C21,7.72 18,4.14 14,3.23M16.5,12C16.5,10.23 15.5,8.71 14,7.97V16C15.5,15.29 16.5,13.76 16.5,12M3,9V15H7L12,20V4L7,9H3Z"/></svg>`;
