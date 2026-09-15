@@ -2033,24 +2033,6 @@
                                     <span class="form-help">Switch between Day (Light) and Night (Dark) mode interfaces.</span>
                                 </div>
                             </div>
-
-                            <!-- Voice Settings Card -->
-                            <div class="settings-card">
-                                <h3 class="settings-card-title">
-                                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-                                        <path d="M14,3.23V5.29C16.89,6.15 19,8.83 19,12C19,15.17 16.89,17.84 14,18.7V20.77C18,19.86 21,16.28 21,12C21,7.72 18,4.14 14,3.23M16.5,12C16.5,10.23 15.5,8.71 14,7.97V16C15.5,15.29 16.5,13.76 16.5,12M3,9V15H7L12,20V4L7,9H3Z"/>
-                                    </svg>
-                                    Voice Settings (ElevenLabs)
-                                </h3>
-                                <div class="form-group">
-                                    <label for="elevenlabs-key-input">ElevenLabs API Key</label>
-                                    <input type="password" id="elevenlabs-key-input" placeholder="Optional. Enables human-like TTS">
-                                </div>
-                                <div class="form-group">
-                                    <label for="elevenlabs-voice-input">Voice ID</label>
-                                    <input type="text" id="elevenlabs-voice-input" placeholder="Default: Rachel (21m00Tcm4TlvDq8ikWAM)">
-                                </div>
-                            </div>
                         </div>
                     </div>
 
@@ -2751,11 +2733,7 @@
             document.getElementById('system-prompt-input').value = appConfig.systemPrompt;
             document.getElementById('max-tokens-input').value = appConfig.maxTokens;
 
-            appConfig.elevenlabsApiKey = localStorage.getItem('nexuschat_elevenlabs_api_key') || '';
-            appConfig.elevenlabsVoiceId = localStorage.getItem('nexuschat_elevenlabs_voice_id') || '21m00Tcm4TlvDq8ikWAM';
-            
-            document.getElementById('elevenlabs-key-input').value = appConfig.elevenlabsApiKey;
-            document.getElementById('elevenlabs-voice-input').value = appConfig.elevenlabsVoiceId;
+
         }
 
         function saveSettings() {
@@ -2784,16 +2762,9 @@
             localStorage.setItem(STORAGE_KEYS.SYSTEM_PROMPT, systemPrompt);
             localStorage.setItem(STORAGE_KEYS.MAX_TOKENS, maxTokens);
 
-            const elevenlabsKey = document.getElementById('elevenlabs-key-input').value.trim();
-            const elevenlabsVoice = document.getElementById('elevenlabs-voice-input').value.trim() || '21m00Tcm4TlvDq8ikWAM';
-            
-            localStorage.setItem('nexuschat_elevenlabs_api_key', elevenlabsKey);
-            localStorage.setItem('nexuschat_elevenlabs_voice_id', elevenlabsVoice);
-
             // Update Global state
             appConfig = { 
-                provider, apiKey, customUrl, model: modelName, systemPrompt, maxTokens,
-                elevenlabsApiKey: elevenlabsKey, elevenlabsVoiceId: elevenlabsVoice
+                provider, apiKey, customUrl, model: modelName, systemPrompt, maxTokens
             };
 
             // Dynamic Success feedback on Save button
