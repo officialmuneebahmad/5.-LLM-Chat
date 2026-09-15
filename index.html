@@ -2268,7 +2268,11 @@
                 }
                 
                 // Clear active chat to prevent previous user's messages from showing
-                startNewChat();
+                chats = [];
+                activeChatId = '';
+                conversationHistory = [];
+                if (messagesContainer) messagesContainer.innerHTML = '';
+                if (document.getElementById('active-chat-title')) document.getElementById('active-chat-title').textContent = 'New Chat';
             }
             loadChats(); // Reload chats when auth state changes
         }
