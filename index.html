@@ -2209,6 +2209,11 @@
             const authText = document.getElementById('navbar-auth-text');
             const accountDropdownBtn = document.getElementById('dropdown-btn-account');
             const navbarAvatarContainer = document.getElementById('navbar-avatar-container');
+            const usernameInput = document.getElementById('account-username');
+            const avatarPreview = document.getElementById('account-avatar-preview');
+            const emailInput = document.getElementById('account-email');
+            
+            const defaultAvatarSvg = `<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>`;
             
             if (user) {
                 console.log('[Auth] User signed in:', user.email);
@@ -2220,27 +2225,40 @@
                 
                 // Fetch profile
                 const { data: profile } = await supabaseClient.from('profiles').select('*').eq('id', user.id).single();
-                if (profile) {
-                    const usernameInput = document.getElementById('account-username');
-                    if (usernameInput) usernameInput.value = profile.username || '';
-                    if (profile.avatar_url) {
-                        const avatarPreview = document.getElementById('account-avatar-preview');
-                        if (avatarPreview) {
-                            avatarPreview.src = profile.avatar_url;
-                            avatarPreview.style.display = 'block';
-                        }
-                        if (navbarAvatarContainer) {
-                            navbarAvatarContainer.innerHTML = `<img src="${profile.avatar_url}" style="width:100%; height:100%; object-fit:cover;">`;
-                        }
+                
+                if (usernameInput) usernameInput.value = (profile && profile.username) ? profile.username : '';
+                if (emailInput) emailInput.value = user.email || '';
+
+                if (profile && profile.avatar_url) {
+                    if (avatarPreview) {
+                        avatarPreview.src = profile.avatar_url;
+                        avatarPreview.style.display = 'block';
+                    }
+                    if (navbarAvatarContainer) {
+                        navbarAvatarContainer.innerHTML = `<img src="${profile.avatar_url}" style="width:100%; height:100%; object-fit:cover;">`;
+                    }
+                } else {
+                    if (avatarPreview) {
+                        avatarPreview.src = '#';
+                        avatarPreview.style.display = 'none';
+                    }
+                    if (navbarAvatarContainer) {
+                        navbarAvatarContainer.innerHTML = defaultAvatarSvg;
                     }
                 }
-                const emailInput = document.getElementById('account-email');
-                if (emailInput) emailInput.value = user.email || '';
             } else {
                 if(authText) authText.textContent = 'Sign In';
                 if (accountDropdownBtn) accountDropdownBtn.style.display = 'none';
+                
+                if (usernameInput) usernameInput.value = '';
+                if (emailInput) emailInput.value = '';
+                if (avatarPreview) {
+                    avatarPreview.src = '#';
+                    avatarPreview.style.display = 'none';
+                }
+                
                 if (navbarAvatarContainer) {
-                    navbarAvatarContainer.innerHTML = `<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>`;
+                    navbarAvatarContainer.innerHTML = defaultAvatarSvg;
                 }
                 
                 // If on account tab, switch back to chat
@@ -2248,6 +2266,9 @@
                 if (panelAccount && panelAccount.classList.contains('active')) {
                     switchTab('chat');
                 }
+                
+                // Clear active chat to prevent previous user's messages from showing
+                startNewChat();
             }
             loadChats(); // Reload chats when auth state changes
         }
