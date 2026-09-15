@@ -2455,6 +2455,11 @@
             } else {
                 document.getElementById('account-avatar-preview').src = avatarUrl;
                 document.getElementById('account-avatar-preview').style.display = 'block';
+                // Immediately update the navbar avatar
+                const navbarAvatar = document.getElementById('navbar-avatar-container');
+                if (navbarAvatar) {
+                    navbarAvatar.innerHTML = `<img src="${avatarUrl}" style="width:100%; height:100%; object-fit:cover;">`;
+                }
             }
         }
 
@@ -3139,17 +3144,34 @@
             const avatar = document.createElement('div');
             avatar.className = 'message-avatar';
             if (isUser) {
-                avatar.innerHTML = `
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                        <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z" />
-                    </svg>
-                `;
+                // Use profile picture if available, fallback to generic icon
+                const userAvatarSrc = document.getElementById('account-avatar-preview')?.src;
+                const hasAvatar = userAvatarSrc && !userAvatarSrc.endsWith('#') && document.getElementById('account-avatar-preview')?.style.display !== 'none';
+                if (hasAvatar) {
+                    avatar.innerHTML = `<img src="${userAvatarSrc}" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">`;
+                } else {
+                    avatar.innerHTML = `<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z" /></svg>`;
+                }
             } else {
-                avatar.innerHTML = `
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                        <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12C20,13.68 19.47,15.22 18.59,16.5L16.29,14.2C17.37,12.92 17.25,11 16,9.88C14.75,8.63 12.72,8.63 11.47,9.88C10.22,11.13 10.22,13.16 11.47,14.41C12.72,15.66 14.75,15.66 16,14.41L18.3,16.71C16.89,18.12 14.9,19 12,19A7,7 0 0,1 5,12A7,7 0 0,1 12,5A7,7 0 0,1 19,12H17A5,5 0 0,0 12,7A5,5 0 0,0 7,12A5,5 0 0,0 12,17C13.38,17 14.5,16.22 15.06,15.06C14.5,15.66 13.38,16 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16Z"/>
-                    </svg>
-                `;
+                // Show model-specific icon based on modelReturned
+                const m = (modelReturned || '').toLowerCase();
+                let modelIcon = '';
+                if (m.includes('gpt') || m.includes('openai')) {
+                    modelIcon = `<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></svg>`;
+                } else if (m.includes('claude') || m.includes('anthropic')) {
+                    modelIcon = `<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.3 3.6L12 16.9 6.7 3.6H2l8 18h4l8-18z"/></svg>`;
+                } else if (m.includes('gemini') || m.includes('google')) {
+                    modelIcon = `<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>`;
+                } else if (m.includes('llama') || m.includes('meta')) {
+                    modelIcon = `<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M6.5 3C4 3 2 5 2 7.5c0 1.7.9 3.2 2.3 4L12 21l7.7-9.5c1.4-.8 2.3-2.3 2.3-4C22 5 20 3 17.5 3c-1.4 0-2.7.6-3.5 1.6C13.2 3.6 11.9 3 10.5 3H6.5z"/></svg>`;
+                } else if (m.includes('mistral') || m.includes('mixtral')) {
+                    modelIcon = `<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M3 3h4v4H3zm7 0h4v4h-4zm7 0h4v4h-4zM3 10h4v4H3zm7 0h4v4h-4zm7 0h4v4h-4zM3 17h4v4H3zm14 0h4v4h-4z"/></svg>`;
+                } else if (m.includes('deepseek')) {
+                    modelIcon = `<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm0 3a7 7 0 1 1 0 14A7 7 0 0 1 12 5zm0 2a5 5 0 1 0 0 10A5 5 0 0 0 12 7z"/></svg>`;
+                } else {
+                    modelIcon = `<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,14.5V9.5L16,12L11,14.5Z"/></svg>`;
+                }
+                avatar.innerHTML = modelIcon;
             }
 
             const bubbleContainer = document.createElement('div');
@@ -3181,11 +3203,29 @@
                     bubble.appendChild(p);
                 }
 
+                const userActionsRow = document.createElement('div');
+                userActionsRow.style.cssText = 'display:flex; justify-content: flex-end; gap: 8px; margin-top: 5px;';
+
+                const copyPromptBtn = document.createElement('button');
+                copyPromptBtn.innerHTML = `<svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg> Copy`;
+                copyPromptBtn.style.cssText = 'background: none; border: none; color: rgba(255,255,255,0.45); cursor: pointer; font-size: 0.72rem; display: flex; align-items: center; gap: 3px; padding: 2px 4px; border-radius: 4px;';
+                copyPromptBtn.title = 'Copy prompt';
+                copyPromptBtn.onclick = () => {
+                    const textToCopy = Array.isArray(content) ? content.filter(p=>p.type==='text').map(p=>p.text).join('\n') : content;
+                    navigator.clipboard.writeText(textToCopy).then(() => {
+                        copyPromptBtn.innerHTML = `✓ Copied`;
+                        setTimeout(() => { copyPromptBtn.innerHTML = `<svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg> Copy`; }, 1500);
+                    });
+                };
+
                 const editBtn = document.createElement('button');
-                editBtn.innerHTML = `✎ Edit`;
-                editBtn.style.cssText = 'background: none; border: none; color: rgba(255,255,255,0.5); cursor: pointer; font-size: 0.75rem; margin-top: 5px; text-align: right; display: block; width: 100%;';
+                editBtn.innerHTML = `✏ Edit`;
+                editBtn.style.cssText = 'background: none; border: none; color: rgba(255,255,255,0.45); cursor: pointer; font-size: 0.72rem; display: flex; align-items: center; gap: 3px; padding: 2px 4px; border-radius: 4px;';
                 editBtn.onclick = () => editMessage(content);
-                bubble.appendChild(editBtn);
+
+                userActionsRow.appendChild(copyPromptBtn);
+                userActionsRow.appendChild(editBtn);
+                bubble.appendChild(userActionsRow);
             } else {
                 // Assistant is parsed using our custom markdown parser
                 bubble.innerHTML = formatMarkdown(content);
