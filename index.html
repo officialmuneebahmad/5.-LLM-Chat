@@ -2323,6 +2323,11 @@
             // Close dropdown first
             const menu = document.getElementById('profile-dropdown-menu');
             if (menu) menu.classList.add('hidden');
+            // Always clear fields so previous session data doesn't persist
+            const emailField = document.getElementById('auth-email');
+            const passwordField = document.getElementById('auth-password');
+            if (emailField) emailField.value = '';
+            if (passwordField) passwordField.value = '';
             document.getElementById('auth-modal').classList.add('active');
             document.getElementById('auth-error').style.display = 'none';
         }
