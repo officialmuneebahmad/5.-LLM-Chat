@@ -1,6 +1,7 @@
 import os
+import io
 import requests
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, send_file
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -100,6 +101,30 @@ def delete_account():
         except Exception:
             err = delete_resp.text
         return jsonify({"error": str(err)}), delete_resp.status_code
+
+@app.route('/api/tts', methods=['POST'])
+def tts():
+    """Free Text-to-Speech using gTTS (Google TTS)."""
+    try:
+        from gtts import gTTS
+    except ImportError:
+        return jsonify({"error": "gTTS not installed. Run: pip install gTTS"}), 500
+
+    data = request.json
+    text = data.get('text', '').strip() if data else ''
+    lang = data.get('lang', 'en')
+
+    if not text:
+        return jsonify({"error": "No text provided"}), 400
+
+    try:
+        tts = gTTS(text=text, lang=lang, slow=False)
+        mp3_fp = io.BytesIO()
+        tts.write_to_fp(mp3_fp)
+        mp3_fp.seek(0)
+        return send_file(mp3_fp, mimetype='audio/mpeg')
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 @app.route('/api/chat', methods=['POST', 'OPTIONS'])
 def proxy_chat():
