@@ -1014,11 +1014,10 @@
             font-family: inherit;
             font-size: 0.95rem;
             color: var(--text-primary);
-            resize: none;
+            resize: vertical;
             outline: none;
-            transition: var(--transition-smooth);
-            max-height: 200px;
             line-height: 1.45;
+            min-height: 80px;
             overflow-y: auto;
         }
 
@@ -2144,11 +2143,11 @@
 
                     <div style="margin-bottom: 18px;">
                         <label class="auth-label">Email</label>
-                        <input type="email" id="auth-email" class="auth-input" placeholder="you@example.com">
+                        <input type="email" id="auth-email" class="auth-input" placeholder="you@example.com" onkeydown="if(event.key === 'Enter') submitAuth()">
                     </div>
                     <div style="margin-bottom: 18px;">
                         <label class="auth-label">Password <span id="auth-password-hint" style="display: none; font-size: 0.75rem; font-weight: normal; margin-left: 5px;">(Min 8 chars)</span></label>
-                        <input type="password" id="auth-password" class="auth-input" placeholder="Password">
+                        <input type="password" id="auth-password" class="auth-input" placeholder="Password" onkeydown="if(event.key === 'Enter') submitAuth()">
                     </div>
                     
                     <div id="auth-toc-field" style="display: none; margin-bottom: 24px; align-items: center; gap: 8px;">
