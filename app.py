@@ -63,7 +63,27 @@ def delete_account():
     if verified_user.get('id') != user_id:
         return jsonify({"error": "User ID mismatch."}), 403
 
-    # Now delete the user using the service role key
+    # Step 1: Delete user's chats (cascades referencing data)
+    requests.delete(
+        f"{SUPABASE_URL}/rest/v1/chats?user_id=eq.{user_id}",
+        headers={
+            "apikey": SUPABASE_SERVICE_ROLE_KEY,
+            "Authorization": f"Bearer {SUPABASE_SERVICE_ROLE_KEY}",
+            "Content-Type": "application/json"
+        }
+    )
+
+    # Step 2: Delete user's profile row
+    requests.delete(
+        f"{SUPABASE_URL}/rest/v1/profiles?id=eq.{user_id}",
+        headers={
+            "apikey": SUPABASE_SERVICE_ROLE_KEY,
+            "Authorization": f"Bearer {SUPABASE_SERVICE_ROLE_KEY}",
+            "Content-Type": "application/json"
+        }
+    )
+
+    # Step 3: Now delete the auth user itself
     delete_resp = requests.delete(
         f"{SUPABASE_URL}/auth/v1/admin/users/{user_id}",
         headers={
