@@ -3,7 +3,7 @@
 
 <head>
     <script>
-        (function() {
+        (function () {
             const savedTheme = localStorage.getItem('nexuschat_theme');
             let theme = 'dark';
             if (savedTheme) {
@@ -22,9 +22,11 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
     <link rel="icon" type="image/png" href="favicon.png">
-    
+
     <!-- Supabase JS -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
@@ -253,16 +255,20 @@
         .sidebar-history::-webkit-scrollbar {
             width: 4px;
         }
+
         .sidebar-history::-webkit-scrollbar-track {
             background: transparent;
         }
+
         .sidebar-history::-webkit-scrollbar-thumb {
             background: rgba(255, 255, 255, 0.05);
             border-radius: 4px;
         }
+
         :root[data-theme="light"] .sidebar-history::-webkit-scrollbar-thumb {
             background: rgba(0, 0, 0, 0.05);
         }
+
         .sidebar-history::-webkit-scrollbar-thumb:hover {
             background: rgba(255, 255, 255, 0.15);
         }
@@ -502,10 +508,12 @@
             justify-content: center;
             transition: var(--transition-smooth);
         }
+
         .navbar-icon-btn:hover {
             background: rgba(255, 255, 255, 0.05);
             color: var(--text-primary);
         }
+
         :root[data-theme="light"] .navbar-icon-btn:hover {
             background: rgba(0, 0, 0, 0.05);
         }
@@ -525,10 +533,12 @@
             overflow: hidden;
             transition: var(--transition-smooth);
         }
+
         .navbar-profile-btn:hover {
             border-color: var(--accent-indigo);
             transform: scale(1.05);
         }
+
         .navbar-profile-btn img {
             width: 100%;
             height: 100%;
@@ -544,7 +554,7 @@
             border-radius: 12px;
             width: 180px;
             padding: 0.5rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
             display: flex;
             flex-direction: column;
             gap: 0.2rem;
@@ -553,6 +563,7 @@
             transform: translateY(0);
             transition: all 0.2s ease;
         }
+
         .profile-dropdown-menu.hidden {
             opacity: 0;
             transform: translateY(-10px);
@@ -575,10 +586,12 @@
             font-weight: 500;
             transition: var(--transition-smooth);
         }
+
         .dropdown-item:hover {
             background: rgba(255, 255, 255, 0.04);
             color: var(--text-primary);
         }
+
         :root[data-theme="light"] .dropdown-item:hover {
             background: rgba(0, 0, 0, 0.03);
         }
@@ -1247,9 +1260,9 @@
         @media (min-width: 769px) {
             .app-sidebar {
                 transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                            padding 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                            opacity 0.2s ease,
-                            border-color 0.3s ease;
+                    padding 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                    opacity 0.2s ease,
+                    border-color 0.3s ease;
                 overflow: hidden;
             }
 
@@ -1569,7 +1582,10 @@
         /* MODAL STYLES */
         .modal-backdrop {
             position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
             background: rgba(0, 0, 0, 0.6);
             backdrop-filter: blur(4px);
             display: flex;
@@ -1580,23 +1596,27 @@
             visibility: hidden;
             transition: opacity 0.3s ease;
         }
+
         .modal-backdrop.active {
             opacity: 1;
             visibility: visible;
         }
+
         .modal {
             background: var(--bg-color);
             border: 1px solid var(--border-color);
             border-radius: 16px;
             width: 90%;
             max-width: 400px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             transform: translateY(20px);
             transition: transform 0.3s ease;
         }
+
         .modal-backdrop.active .modal {
             transform: translateY(0);
         }
+
         .modal-header {
             display: flex;
             justify-content: space-between;
@@ -1604,13 +1624,23 @@
             padding: 15px 20px;
             border-bottom: 1px solid var(--border-color);
         }
+
         .modal-title {
-            margin: 0; font-size: 1.1rem;
+            margin: 0;
+            font-size: 1.1rem;
         }
+
         .close-modal {
-            background: none; border: none; color: var(--text-secondary); cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
         }
-        .close-modal:hover { color: var(--text-primary); }
+
+        .close-modal:hover {
+            color: var(--text-primary);
+        }
+
         .modal-content {
             padding: 20px;
         }
@@ -1623,6 +1653,7 @@
             color: var(--text-secondary);
             font-weight: 500;
         }
+
         .auth-input {
             width: 100%;
             padding: 12px 16px;
@@ -1634,6 +1665,7 @@
             box-sizing: border-box;
             transition: all 0.3s ease;
         }
+
         .auth-input:focus {
             outline: none;
             border-color: var(--accent-indigo);
@@ -1650,17 +1682,21 @@
             border: none;
             transition: background 0.3s ease;
         }
+
         .btn-primary {
             background: var(--accent-indigo);
             color: #fff;
         }
+
         .btn-primary:hover {
             background: #4f46e5;
         }
+
         .btn-secondary {
             background: rgba(255, 255, 255, 0.1);
             color: var(--text-primary);
         }
+
         .btn-secondary:hover {
             background: rgba(255, 255, 255, 0.2);
         }
@@ -1670,17 +1706,29 @@
             display: flex;
             align-items: center;
         }
+
         .attachment-buttons {
             display: flex;
             gap: 10px;
         }
+
         .mobile-only {
             display: none;
-            background: none; border: none; color: var(--text-secondary); cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
         }
-        .mobile-only:hover { color: var(--text-primary); }
+
+        .mobile-only:hover {
+            color: var(--text-primary);
+        }
+
         @media (max-width: 768px) {
-            .mobile-only { display: flex; }
+            .mobile-only {
+                display: flex;
+            }
+
             .attachment-buttons {
                 display: none;
                 position: absolute;
@@ -1690,11 +1738,12 @@
                 padding: 10px;
                 border-radius: 12px;
                 border: 1px solid var(--border-color);
-                box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
                 flex-direction: column;
                 gap: 10px;
                 z-index: 100;
             }
+
             .attachment-buttons.show {
                 display: flex;
             }
@@ -1713,29 +1762,34 @@
         <aside class="app-sidebar" id="app-sidebar">
             <div class="sidebar-header">
                 <div class="app-logo">
-                    <img src="/logo.jpg" alt="NexusChat" class="logo-icon" style="width: 28px; height: 28px; border-radius: 50%;">
+                    <img src="/logo.jpg" alt="NexusChat" class="logo-icon"
+                        style="width: 28px; height: 28px; border-radius: 50%;">
                     <span class="logo-text">NexusChat</span>
                 </div>
                 <!-- Mobile Close Sidebar button -->
                 <button class="close-sidebar-btn" id="close-sidebar-btn" onclick="toggleMobileSidebar(false)">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                        <path
+                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
                     </svg>
                 </button>
             </div>
-            
+
             <button class="new-chat-btn" onclick="createNewChat()">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
                 </svg>
                 New Chat
             </button>
 
             <!-- Sidebar Navigation Tabs -->
-            <div class="sidebar-nav" style="display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1.5rem; flex-shrink: 0;">
+            <div class="sidebar-nav"
+                style="display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1.5rem; flex-shrink: 0;">
                 <button id="sidebar-tab-chat" class="sidebar-nav-item active" onclick="switchTab('chat')">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="display: flex; align-items: center;">
-                        <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z" />
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"
+                        style="display: flex; align-items: center;">
+                        <path
+                            d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z" />
                     </svg>
                     Chat
                 </button>
@@ -1750,13 +1804,15 @@
             </div>
 
             <div class="sidebar-footer">
-                <button class="sidebar-footer-btn clear-history-btn" onclick="clearAllChats()" title="Clear all history">
+                <button class="sidebar-footer-btn clear-history-btn" onclick="clearAllChats()"
+                    title="Clear all history">
                     <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-                        <path d="M19 4h-3.5l-1-1h-5l-1 1H5v2h14V4zM6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12z"/>
+                        <path d="M19 4h-3.5l-1-1h-5l-1 1H5v2h14V4zM6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12z" />
                     </svg>
                     Clear History
                 </button>
-                <button class="sidebar-footer-btn" onclick="exportCurrentChat()" title="Export chat as Markdown" style="margin-top: 5px;">
+                <button class="sidebar-footer-btn" onclick="exportCurrentChat()" title="Export chat as Markdown"
+                    style="margin-top: 5px;">
                     <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
                         <path d="M19,9H15V3H9V9H5L12,16M5,18V20H19V18H5Z" />
                     </svg>
@@ -1776,12 +1832,14 @@
                     <!-- Mobile Hamburger Menu Button -->
                     <button class="hamburger-menu-btn" id="hamburger-menu-btn" onclick="toggleMobileSidebar(true)">
                         <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-                            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
                         </svg>
                     </button>
                     <!-- Desktop Sidebar Toggle Button -->
-                    <button class="sidebar-toggle-btn" id="sidebar-toggle-btn" onclick="toggleDesktopSidebar()" title="Toggle Sidebar">
-                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <button class="sidebar-toggle-btn" id="sidebar-toggle-btn" onclick="toggleDesktopSidebar()"
+                        title="Toggle Sidebar">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
                             <line x1="9" y1="3" x2="9" y2="21"></line>
                         </svg>
@@ -1793,7 +1851,8 @@
                 <!-- Right Side Actions -->
                 <div class="header-actions" style="display: flex; align-items: center; gap: 0.75rem;">
                     <!-- Compact API Connection Indicator -->
-                    <div id="connection-indicator" class="connection-indicator disconnected" onclick="switchTab('settings')" title="Click to configure API credentials">
+                    <div id="connection-indicator" class="connection-indicator disconnected"
+                        onclick="switchTab('settings')" title="Click to configure API credentials">
                         <span class="indicator-dot"></span>
                         <span class="indicator-text">API Config Required</span>
                     </div>
@@ -1801,26 +1860,36 @@
                     <!-- Settings Button -->
                     <button class="navbar-icon-btn" onclick="switchTab('settings')" title="Settings">
                         <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                            <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z" />
+                            <path
+                                d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z" />
                         </svg>
                     </button>
 
                     <!-- Profile Dropdown Container -->
                     <div class="profile-dropdown-container">
                         <button class="navbar-profile-btn" onclick="toggleProfileDropdown(event)" title="Account">
-                            <div id="navbar-avatar-container" style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.05); color:var(--text-secondary);">
+                            <div id="navbar-avatar-container"
+                                style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.05); color:var(--text-secondary);">
                                 <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                    <path
+                                        d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
                                 </svg>
                             </div>
                         </button>
                         <div id="profile-dropdown-menu" class="profile-dropdown-menu hidden">
-                            <button id="dropdown-btn-account" class="dropdown-item" onclick="switchTab('account')" style="display: none;">
-                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                            <button id="dropdown-btn-account" class="dropdown-item" onclick="switchTab('account')"
+                                style="display: none;">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path
+                                        d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                                </svg>
                                 Profile
                             </button>
                             <button id="dropdown-btn-auth" class="dropdown-item" onclick="handleAuthDropdownClick()">
-                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path
+                                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
+                                </svg>
                                 <span id="navbar-auth-text">Sign In</span>
                             </button>
                         </div>
@@ -1828,290 +1897,349 @@
                 </div>
             </header>
 
-        <!-- Application Content Views -->
-        <main class="app-content">
+            <!-- Application Content Views -->
+            <main class="app-content">
 
-            <!-- Chat Panel -->
-            <div id="panel-chat" class="tab-panel active">
+                <!-- Chat Panel -->
+                <div id="panel-chat" class="tab-panel active">
 
-                <div id="messages-container" class="messages-container">
-                    <div class="welcome-message" id="welcome-message">
-                        <svg class="welcome-icon" viewBox="0 0 24 24" width="48" height="48" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <path d="M12 16v-4"></path>
-                            <path d="M12 8h.01"></path>
-                        </svg>
-                        <h3>Get Started with NexusChat</h3>
-                        <p>A unified interface for interacting with LLM providers. Navigate to the
-                            <strong>Settings</strong> tab, configure your API keys, and start chatting.</p>
+                    <div id="messages-container" class="messages-container">
+                        <div class="welcome-message" id="welcome-message">
+                            <svg class="welcome-icon" viewBox="0 0 24 24" width="48" height="48" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M12 16v-4"></path>
+                                <path d="M12 8h.01"></path>
+                            </svg>
+                            <h3>Get Started with NexusChat</h3>
+                            <p>A unified interface for interacting with LLM providers. Navigate to the
+                                <strong>Settings</strong> tab, configure your API keys, and start chatting.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="chat-input-wrapper" style="flex-direction: column; align-items: stretch;">
+                        <div class="search-toggles"
+                            style="display: flex; gap: 15px; padding: 8px 15px; border-bottom: 1px solid var(--border-color); background: rgba(0,0,0,0.02); border-radius: 24px 24px 0 0;">
+                            <label
+                                style="font-size: 0.8rem; color: var(--text-secondary); display: flex; align-items: center; gap: 5px; cursor: pointer;">
+                                <input type="checkbox" id="search-surface"
+                                    onchange="handleSearchToggle(this, 'surface')"> Surface Search
+                            </label>
+                            <label
+                                style="font-size: 0.8rem; color: var(--text-secondary); display: flex; align-items: center; gap: 5px; cursor: pointer;">
+                                <input type="checkbox" id="search-deep" onchange="handleSearchToggle(this, 'deep')">
+                                Deep Search
+                            </label>
+                            <label
+                                style="font-size: 0.8rem; color: var(--text-secondary); display: flex; align-items: center; gap: 5px; cursor: pointer;">
+                                <input type="checkbox" id="search-dark" onchange="handleSearchToggle(this, 'dark')">
+                                Dark Web
+                            </label>
+                        </div>
+
+                        <div
+                            style="display: flex; align-items: center; gap: 10px; padding: 10px 15px; flex: 1; position: relative;">
+                            <div class="attachment-actions">
+                                <button id="toggle-attachments-btn" class="mobile-only input-action-btn"
+                                    onclick="toggleAttachmentMenu()">
+                                    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+                                    </svg>
+                                </button>
+                                <div class="attachment-buttons" id="attachment-buttons">
+                                    <!-- Image Upload Input -->
+                                    <input type="file" id="image-upload" accept="image/*" style="display: none;"
+                                        onchange="handleImageUpload(event)">
+                                    <button id="attach-img-btn" class="input-action-btn" title="Attach Image"
+                                        onclick="document.getElementById('image-upload').click(); closeAttachmentMenu();">
+                                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                                            <path
+                                                d="M19,19H5V5H19M19,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M13.96,12.29L11.21,15.83L9.25,13.47L6.5,17H17.5L13.96,12.29Z" />
+                                        </svg>
+                                    </button>
+                                    <!-- Voice Input Button -->
+                                    <button id="voice-input-btn" class="input-action-btn" title="Voice Input"
+                                        onclick="toggleVoiceInput(); closeAttachmentMenu();">
+                                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                                            <path
+                                                d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z" />
+                                        </svg>
+                                    </button>
+                                    <!-- File Upload Input -->
+                                    <input type="file" id="file-upload" accept=".txt,.md,.csv,.json"
+                                        style="display: none;" onchange="handleFileUpload(event)">
+                                    <button id="attach-file-btn" class="input-action-btn" title="Attach File"
+                                        onclick="document.getElementById('file-upload').click(); closeAttachmentMenu();">
+                                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                                            <path
+                                                d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M13,9V3.5L18.5,9H13Z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div style="flex: 1; display: flex; flex-direction: column; gap: 5px; position: relative;">
+                                <!-- Attachment Previews -->
+                                <div id="attachment-preview-container"
+                                    style="display: none; align-items: center; gap: 10px; padding: 5px 10px; background: rgba(255,255,255,0.05); border-radius: 8px;">
+                                    <img id="image-preview" src="" alt="preview"
+                                        style="max-height: 40px; border-radius: 4px; display: none;">
+                                    <span id="file-preview-text"
+                                        style="font-size: 0.8rem; color: var(--text-secondary); display: none;"></span>
+                                    <button onclick="clearAttachments()"
+                                        style="background: none; border: none; color: var(--error-text); cursor: pointer; padding: 0;">
+                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                            <path
+                                                d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                                <textarea id="chat-input"
+                                    placeholder="Type a message... (Enter to send, Shift+Enter for newline)" rows="1"
+                                    onkeydown="handleInputKeydown(event)"></textarea>
+                            </div>
+
+                            <button id="send-btn" class="send-btn" title="Send message" onclick="sendMessage()">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                                    <path d="M2,21L23,12L2,3V10L17,12L2,14V21Z" />
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
-                <div class="chat-input-wrapper" style="flex-direction: column; align-items: stretch;">
-                    <div class="search-toggles" style="display: flex; gap: 15px; padding: 8px 15px; border-bottom: 1px solid var(--border-color); background: rgba(0,0,0,0.02); border-radius: 24px 24px 0 0;">
-                        <label style="font-size: 0.8rem; color: var(--text-secondary); display: flex; align-items: center; gap: 5px; cursor: pointer;">
-                            <input type="checkbox" id="search-surface" onchange="handleSearchToggle(this, 'surface')"> Surface Search
-                        </label>
-                        <label style="font-size: 0.8rem; color: var(--text-secondary); display: flex; align-items: center; gap: 5px; cursor: pointer;">
-                            <input type="checkbox" id="search-deep" onchange="handleSearchToggle(this, 'deep')"> Deep Search
-                        </label>
-                        <label style="font-size: 0.8rem; color: var(--text-secondary); display: flex; align-items: center; gap: 5px; cursor: pointer;">
-                            <input type="checkbox" id="search-dark" onchange="handleSearchToggle(this, 'dark')"> Dark Web
-                        </label>
-                    </div>
-                    
-                    <div style="display: flex; align-items: center; gap: 10px; padding: 10px 15px; flex: 1; position: relative;">
-                        <div class="attachment-actions">
-                            <button id="toggle-attachments-btn" class="mobile-only input-action-btn" onclick="toggleAttachmentMenu()">
-                                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-                                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
-                                </svg>
-                            </button>
-                            <div class="attachment-buttons" id="attachment-buttons">
-                                <!-- Image Upload Input -->
-                                <input type="file" id="image-upload" accept="image/*" style="display: none;" onchange="handleImageUpload(event)">
-                                <button id="attach-img-btn" class="input-action-btn" title="Attach Image" onclick="document.getElementById('image-upload').click(); closeAttachmentMenu();">
-                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                                        <path d="M19,19H5V5H19M19,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M13.96,12.29L11.21,15.83L9.25,13.47L6.5,17H17.5L13.96,12.29Z" />
-                                    </svg>
-                                </button>
-                                <!-- Voice Input Button -->
-                                <button id="voice-input-btn" class="input-action-btn" title="Voice Input" onclick="toggleVoiceInput(); closeAttachmentMenu();">
-                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                                        <path d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z" />
-                                    </svg>
-                                </button>
-                                <!-- File Upload Input -->
-                                <input type="file" id="file-upload" accept=".txt,.md,.csv,.json" style="display: none;" onchange="handleFileUpload(event)">
-                                <button id="attach-file-btn" class="input-action-btn" title="Attach File" onclick="document.getElementById('file-upload').click(); closeAttachmentMenu();">
-                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                                        <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M13,9V3.5L18.5,9H13Z" />
-                                    </svg>
-                                </button>
+                <!-- Settings Panel -->
+                <div id="panel-settings" class="tab-panel">
+                    <div class="settings-container">
+                        <h2 class="settings-title">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"
+                                style="color: var(--accent-indigo);">
+                                <path
+                                    d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z" />
+                            </svg>
+                            API Configuration
+                        </h2>
+
+                        <div class="settings-grid">
+
+                            <!-- Left Column -->
+                            <div class="settings-column">
+                                <!-- Provider Card -->
+                                <div class="settings-card">
+                                    <h3 class="settings-card-title">
+                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                                            <path
+                                                d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" />
+                                        </svg>
+                                        Connection Details
+                                    </h3>
+
+                                    <div class="form-group">
+                                        <label for="provider-select">API Provider</label>
+                                        <select id="provider-select" onchange="handleProviderChange()">
+                                            <option value="openai">OpenAI</option>
+                                            <option value="gemini">Google Gemini</option>
+                                            <option value="groq">Groq</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group" id="custom-url-container" style="display: none;">
+                                        <label for="custom-url-input">Custom Base URL</label>
+                                        <input type="text" id="custom-url-input"
+                                            placeholder="e.g., https://api.together.xyz/v1">
+                                        <span class="form-help">Enter the root API endpoint. Requests will POST to this
+                                            URL +
+                                            /chat/completions</span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div
+                                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                                            <label for="api-key-input" style="margin-bottom: 0;">API Key</label>
+                                            <a id="api-key-link" href="#" target="_blank"
+                                                style="font-size: 0.8rem; color: var(--accent-indigo); text-decoration: none;">Get
+                                                API Key</a>
+                                        </div>
+                                        <div class="password-input-wrapper">
+                                            <input type="password" id="api-key-input" placeholder="Enter API Key">
+                                            <button type="button" class="toggle-password"
+                                                onclick="togglePasswordVisibility('api-key-input')">
+                                                <svg id="eye-icon" viewBox="0 0 24 24" width="20" height="20"
+                                                    fill="currentColor">
+                                                    <!-- eye open path by default -->
+                                                    <path
+                                                        d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17Z" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Right Column -->
+                            <div class="settings-column">
+                                <!-- Parameters Card -->
+                                <div class="settings-card">
+                                    <h3 class="settings-card-title">
+                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                                            <path
+                                                d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z" />
+                                        </svg>
+                                        Model Parameters
+                                    </h3>
+
+                                    <div class="form-group">
+                                        <label for="model-name-input">Model Name</label>
+                                        <input type="text" id="model-name-input" placeholder="e.g., gpt-4o">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="system-prompt-input">System Prompt (Optional)</label>
+                                        <textarea id="system-prompt-input"
+                                            placeholder="e.g., You are a helpful and precise assistant..."
+                                            rows="2"></textarea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="max-tokens-input">Max Tokens</label>
+                                        <input type="number" id="max-tokens-input" placeholder="e.g., 2048" min="1">
+                                    </div>
+                                </div>
+
+                                <!-- Appearance Card -->
+                                <div class="settings-card">
+                                    <h3 class="settings-card-title">
+                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="5"></circle>
+                                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                                        </svg>
+                                        Appearance
+                                    </h3>
+
+                                    <div class="form-group">
+                                        <label>Interface Theme</label>
+                                        <button type="button" class="sidebar-footer-btn" id="settings-theme-btn"
+                                            onclick="toggleTheme()"
+                                            style="justify-content: center; width: 100%; border: 1px solid var(--border-color); background: rgba(255, 255, 255, 0.02); padding: 0.65rem 1rem; border-radius: 12px; font-weight: 600; cursor: pointer; transition: var(--transition-smooth); display: flex; align-items: center; gap: 0.75rem;">
+                                            <span class="theme-toggle-icon" id="settings-theme-icon"
+                                                style="display: flex; align-items: center; justify-content: center;"></span>
+                                            <span id="settings-theme-text">Switch Theme</span>
+                                        </button>
+                                        <span class="form-help">Switch between Day (Light) and Night (Dark) mode
+                                            interfaces.</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <div style="flex: 1; display: flex; flex-direction: column; gap: 5px; position: relative;">
-                        <!-- Attachment Previews -->
-                        <div id="attachment-preview-container" style="display: none; align-items: center; gap: 10px; padding: 5px 10px; background: rgba(255,255,255,0.05); border-radius: 8px;">
-                            <img id="image-preview" src="" alt="preview" style="max-height: 40px; border-radius: 4px; display: none;">
-                            <span id="file-preview-text" style="font-size: 0.8rem; color: var(--text-secondary); display: none;"></span>
-                            <button onclick="clearAttachments()" style="background: none; border: none; color: var(--error-text); cursor: pointer; padding: 0;">
-                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" /></svg>
-                            </button>
-                        </div>
-                        <textarea id="chat-input" placeholder="Type a message... (Enter to send, Shift+Enter for newline)"
-                            rows="1" onkeydown="handleInputKeydown(event)"></textarea>
-                    </div>
-
-                        <button id="send-btn" class="send-btn" title="Send message" onclick="sendMessage()">
-                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                                <path d="M2,21L23,12L2,3V10L17,12L2,14V21Z" />
+                        <button id="save-settings-btn" class="save-settings-btn" onclick="saveSettings()">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                                <path
+                                    d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z" />
                             </svg>
+                            Save Settings
                         </button>
                     </div>
                 </div>
-            </div>
 
-            <!-- Settings Panel -->
-            <div id="panel-settings" class="tab-panel">
-                <div class="settings-container">
-                    <h2 class="settings-title">
-                        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"
-                            style="color: var(--accent-indigo);">
-                            <path
-                                d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z" />
-                        </svg>
-                        API Configuration
-                    </h2>
-
-                    <div class="settings-grid">
-
-                        <!-- Left Column -->
-                        <div class="settings-column">
-                            <!-- Provider Card -->
+                <!-- Account Panel -->
+                <div id="panel-account" class="tab-panel">
+                    <div class="settings-container">
+                        <h2 class="settings-title">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"
+                                style="color: var(--accent-indigo);">
+                                <path
+                                    d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                            </svg>
+                            Account Management
+                        </h2>
+                        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
                             <div class="settings-card">
-                                <h3 class="settings-card-title">
-                                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-                                        <path
-                                            d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" />
-                                    </svg>
-                                    Connection Details
-                                </h3>
-
-                                <div class="form-group">
-                                    <label for="provider-select">API Provider</label>
-                                    <select id="provider-select" onchange="handleProviderChange()">
-                                        <option value="openai">OpenAI</option>
-                                        <option value="gemini">Google Gemini</option>
-                                        <option value="groq">Groq</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group" id="custom-url-container" style="display: none;">
-                                    <label for="custom-url-input">Custom Base URL</label>
-                                    <input type="text" id="custom-url-input"
-                                        placeholder="e.g., https://api.together.xyz/v1">
-                                    <span class="form-help">Enter the root API endpoint. Requests will POST to this URL +
-                                        /chat/completions</span>
-                                </div>
-
-                                <div class="form-group">
-                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
-                                        <label for="api-key-input" style="margin-bottom: 0;">API Key</label>
-                                        <a id="api-key-link" href="#" target="_blank" style="font-size: 0.8rem; color: var(--accent-indigo); text-decoration: none;">Get API Key</a>
+                                <h3 class="settings-card-title">Profile Picture</h3>
+                                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                                    <img id="account-avatar-preview" src="https://via.placeholder.com/80" alt="Avatar"
+                                        style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border-color);">
+                                    <div>
+                                        <input type="file" id="account-avatar-input" accept=".jpg, .jpeg, .png"
+                                            style="display: none;" onchange="handleAvatarSelect(event)">
+                                        <button class="btn btn-secondary"
+                                            onclick="document.getElementById('account-avatar-input').click()">Upload New
+                                            Picture</button>
                                     </div>
+                                </div>
+                            </div>
+
+                            <div class="settings-card">
+                                <h3 class="settings-card-title">Profile Info</h3>
+                                <div class="form-group">
+                                    <label>Username</label>
+                                    <input type="text" id="account-username" class="auth-input">
+                                </div>
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" id="account-email" class="auth-input" disabled
+                                        style="opacity: 0.7;">
+                                </div>
+                                <button class="btn btn-primary" onclick="updateProfileInfo()">Update Profile</button>
+                            </div>
+
+                            <div class="settings-card">
+                                <h3 class="settings-card-title">Security</h3>
+                                <div class="form-group">
+                                    <label>Current Password</label>
                                     <div class="password-input-wrapper">
-                                        <input type="password" id="api-key-input" placeholder="Enter API Key">
+                                        <input type="password" id="account-current-password" class="auth-input"
+                                            placeholder="Enter your current password">
                                         <button type="button" class="toggle-password"
-                                            onclick="togglePasswordVisibility('api-key-input')">
-                                            <svg id="eye-icon" viewBox="0 0 24 24" width="20" height="20"
-                                                fill="currentColor">
-                                                <!-- eye open path by default -->
+                                            onclick="togglePasswordVisibility('account-current-password')">
+                                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
                                                 <path
                                                     d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17Z" />
                                             </svg>
                                         </button>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-
-                        <!-- Right Column -->
-                        <div class="settings-column">
-                            <!-- Parameters Card -->
-                            <div class="settings-card">
-                                <h3 class="settings-card-title">
-                                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-                                        <path
-                                            d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z" />
-                                    </svg>
-                                    Model Parameters
-                                </h3>
-
                                 <div class="form-group">
-                                    <label for="model-name-input">Model Name</label>
-                                    <input type="text" id="model-name-input" placeholder="e.g., gpt-4o">
+                                    <label>New Password <span
+                                            style="color: var(--text-secondary); font-size:0.8rem;">(min 8
+                                            characters)</span></label>
+                                    <div class="password-input-wrapper">
+                                        <input type="password" id="account-new-password" class="auth-input"
+                                            placeholder="Enter new password">
+                                        <button type="button" class="toggle-password"
+                                            onclick="togglePasswordVisibility('account-new-password')">
+                                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                                                <path
+                                                    d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17Z" />
+                                            </svg>
+                                        </button>
+                                    </div>
                                 </div>
-
-                                <div class="form-group">
-                                    <label for="system-prompt-input">System Prompt (Optional)</label>
-                                    <textarea id="system-prompt-input"
-                                        placeholder="e.g., You are a helpful and precise assistant..." rows="2"></textarea>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="max-tokens-input">Max Tokens</label>
-                                    <input type="number" id="max-tokens-input" placeholder="e.g., 2048" min="1">
-                                </div>
+                                <button class="btn btn-secondary" onclick="updatePassword()">Change Password</button>
                             </div>
 
-                            <!-- Appearance Card -->
-                            <div class="settings-card">
-                                <h3 class="settings-card-title">
-                                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="5"></circle>
-                                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                                    </svg>
-                                    Appearance
-                                </h3>
-
-                                <div class="form-group">
-                                    <label>Interface Theme</label>
-                                    <button type="button" class="sidebar-footer-btn" id="settings-theme-btn" onclick="toggleTheme()" style="justify-content: center; width: 100%; border: 1px solid var(--border-color); background: rgba(255, 255, 255, 0.02); padding: 0.65rem 1rem; border-radius: 12px; font-weight: 600; cursor: pointer; transition: var(--transition-smooth); display: flex; align-items: center; gap: 0.75rem;">
-                                        <span class="theme-toggle-icon" id="settings-theme-icon" style="display: flex; align-items: center; justify-content: center;"></span>
-                                        <span id="settings-theme-text">Switch Theme</span>
-                                    </button>
-                                    <span class="form-help">Switch between Day (Light) and Night (Dark) mode interfaces.</span>
-                                </div>
+                            <div class="settings-card" style="border-color: rgba(239, 68, 68, 0.3);">
+                                <h3 class="settings-card-title" style="color: var(--error-text);">Danger Zone</h3>
+                                <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">Once
+                                    you delete your account, there is no going back. Please be certain.</p>
+                                <button class="btn"
+                                    style="background: var(--error-bg); color: var(--error-text); border: 1px solid var(--error-border);"
+                                    onclick="confirmDeleteAccount()">Delete Account</button>
                             </div>
                         </div>
                     </div>
-
-                    <button id="save-settings-btn" class="save-settings-btn" onclick="saveSettings()">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-                            <path
-                                d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z" />
-                        </svg>
-                        Save Settings
-                    </button>
                 </div>
-            </div>
-
-            <!-- Account Panel -->
-            <div id="panel-account" class="tab-panel">
-                <div class="settings-container">
-                    <h2 class="settings-title">
-                        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" style="color: var(--accent-indigo);">
-                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                        </svg>
-                        Account Management
-                    </h2>
-                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
-                        <div class="settings-card">
-                            <h3 class="settings-card-title">Profile Picture</h3>
-                            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                                <img id="account-avatar-preview" src="https://via.placeholder.com/80" alt="Avatar" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border-color);">
-                                <div>
-                                    <input type="file" id="account-avatar-input" accept=".jpg, .jpeg, .png" style="display: none;" onchange="handleAvatarSelect(event)">
-                                    <button class="btn btn-secondary" onclick="document.getElementById('account-avatar-input').click()">Upload New Picture</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="settings-card">
-                            <h3 class="settings-card-title">Profile Info</h3>
-                            <div class="form-group">
-                                <label>Username</label>
-                                <input type="text" id="account-username" class="auth-input">
-                            </div>
-                            <div class="form-group">
-                                <label>Email</label>
-                                <input type="email" id="account-email" class="auth-input" disabled style="opacity: 0.7;">
-                            </div>
-                            <button class="btn btn-primary" onclick="updateProfileInfo()">Update Profile</button>
-                        </div>
-
-                        <div class="settings-card">
-                            <h3 class="settings-card-title">Security</h3>
-                            <div class="form-group">
-                                <label>Current Password</label>
-                                <div class="password-input-wrapper">
-                                    <input type="password" id="account-current-password" class="auth-input" placeholder="Enter your current password">
-                                    <button type="button" class="toggle-password" onclick="togglePasswordVisibility('account-current-password')">
-                                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17Z"/></svg>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>New Password <span style="color: var(--text-secondary); font-size:0.8rem;">(min 8 characters)</span></label>
-                                <div class="password-input-wrapper">
-                                    <input type="password" id="account-new-password" class="auth-input" placeholder="Enter new password">
-                                    <button type="button" class="toggle-password" onclick="togglePasswordVisibility('account-new-password')">
-                                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17Z"/></svg>
-                                    </button>
-                                </div>
-                            </div>
-                            <button class="btn btn-secondary" onclick="updatePassword()">Change Password</button>
-                        </div>
-
-                        <div class="settings-card" style="border-color: rgba(239, 68, 68, 0.3);">
-                            <h3 class="settings-card-title" style="color: var(--error-text);">Danger Zone</h3>
-                            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">Once you delete your account, there is no going back. Please be certain.</p>
-                            <button class="btn" style="background: var(--error-bg); color: var(--error-text); border: 1px solid var(--error-border);" onclick="confirmDeleteAccount()">Delete Account</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
+            </main>
         </div>
 
         <!-- AUTH MODAL -->
@@ -2121,15 +2249,18 @@
                     <h3 class="modal-title" id="auth-modal-title">Sign In to Sync Chats</h3>
                     <button class="close-modal" onclick="closeAuthModal()">
                         <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" />
+                            <path
+                                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" />
                         </svg>
                     </button>
                 </div>
                 <div class="modal-content">
-                    <div style="background: rgba(255, 165, 0, 0.1); border-left: 3px solid #ff9800; padding: 10px; margin-bottom: 15px; font-size: 0.8rem; color: var(--text-primary); border-radius: 0 4px 4px 0;">
-                        <strong>Limitations Note:</strong> This app interfaces with public LLMs. Free API models may have strict rate limits and usage constraints depending on the provider.
+                    <div
+                        style="background: rgba(255, 165, 0, 0.1); border-left: 3px solid #ff9800; padding: 10px; margin-bottom: 15px; font-size: 0.8rem; color: var(--text-primary); border-radius: 0 4px 4px 0;">
+                        <strong>Limitations Note:</strong> This app interfaces with public LLMs. Free API models may
+                        have strict rate limits and usage constraints depending on the provider.
                     </div>
-                    
+
                     <div id="auth-signup-fields" style="display: none;">
                         <div style="margin-bottom: 18px;">
                             <label class="auth-label">Username</label>
@@ -2143,29 +2274,42 @@
 
                     <div style="margin-bottom: 18px;">
                         <label class="auth-label">Email</label>
-                        <input type="email" id="auth-email" class="auth-input" placeholder="you@example.com" onkeydown="if(event.key === 'Enter') submitAuth()">
+                        <input type="email" id="auth-email" class="auth-input" placeholder="you@example.com"
+                            onkeydown="if(event.key === 'Enter') submitAuth()">
                     </div>
                     <div style="margin-bottom: 18px;">
-                        <label class="auth-label">Password <span id="auth-password-hint" style="display: none; font-size: 0.75rem; font-weight: normal; margin-left: 5px;">(Min 8 chars)</span></label>
-                        <input type="password" id="auth-password" class="auth-input" placeholder="Password" onkeydown="if(event.key === 'Enter') submitAuth()">
+                        <label class="auth-label">Password <span id="auth-password-hint"
+                                style="display: none; font-size: 0.75rem; font-weight: normal; margin-left: 5px;">(Min 8
+                                chars)</span></label>
+                        <input type="password" id="auth-password" class="auth-input" placeholder="Password"
+                            onkeydown="if(event.key === 'Enter') submitAuth()">
                     </div>
-                    
+
                     <div id="auth-toc-field" style="display: none; margin-bottom: 24px; align-items: center; gap: 8px;">
-                        <input type="checkbox" id="auth-toc-check" style="accent-color: var(--accent-indigo); width: 16px; height: 16px;">
+                        <input type="checkbox" id="auth-toc-check"
+                            style="accent-color: var(--accent-indigo); width: 16px; height: 16px;">
                         <label for="auth-toc-check" style="font-size: 0.85rem; color: var(--text-secondary);">
-                            I accept the <a href="/toc" target="_blank" style="color: var(--accent-indigo); text-decoration: none;">Terms and Conditions</a>
+                            I accept the <a href="/toc" target="_blank"
+                                style="color: var(--accent-indigo); text-decoration: none;">Terms and Conditions</a>
                         </label>
                     </div>
 
-                    <div id="auth-error" style="color: var(--error-text); font-size: 0.85rem; margin-bottom: 15px; display: none;"></div>
-                    
+                    <div id="auth-error"
+                        style="color: var(--error-text); font-size: 0.85rem; margin-bottom: 15px; display: none;"></div>
+
                     <div style="display: flex; flex-direction: column; gap: 10px;">
-                        <button class="btn btn-primary" id="auth-submit-btn" style="width: 100%;" onclick="submitAuth()">Sign In</button>
-                        <div style="text-align: center; font-size: 0.85rem; color: var(--text-secondary); margin: 5px 0;">
-                            <span id="auth-toggle-text">Don't have an account?</span> 
-                            <a href="#" id="auth-toggle-link" onclick="toggleAuthMode(event)" style="color: var(--accent-indigo); text-decoration: none; font-weight: 500;">Sign Up</a>
+                        <button class="btn btn-primary" id="auth-submit-btn" style="width: 100%;"
+                            onclick="submitAuth()">Sign In</button>
+                        <div
+                            style="text-align: center; font-size: 0.85rem; color: var(--text-secondary); margin: 5px 0;">
+                            <span id="auth-toggle-text">Don't have an account?</span>
+                            <a href="#" id="auth-toggle-link" onclick="toggleAuthMode(event)"
+                                style="color: var(--accent-indigo); text-decoration: none; font-weight: 500;">Sign
+                                Up</a>
                         </div>
-                        <button class="btn btn-secondary" style="width: 100%; background: transparent; border: 1px solid var(--border-color);" onclick="skipAuth()">Skip & Use Local Storage</button>
+                        <button class="btn btn-secondary"
+                            style="width: 100%; background: transparent; border: 1px solid var(--border-color);"
+                            onclick="skipAuth()">Skip & Use Local Storage</button>
                     </div>
                     <div style="margin-top: 15px; text-align: center; font-size: 0.8rem; color: var(--text-secondary);">
                         Chats are synced seamlessly across your devices when logged in!
@@ -2212,20 +2356,20 @@
             const usernameInput = document.getElementById('account-username');
             const avatarPreview = document.getElementById('account-avatar-preview');
             const emailInput = document.getElementById('account-email');
-            
+
             const defaultAvatarSvg = `<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>`;
-            
+
             if (user) {
                 console.log('[Auth] User signed in:', user.email);
-                if(authText) authText.textContent = 'Sign Out';
+                if (authText) authText.textContent = 'Sign Out';
                 if (accountDropdownBtn) accountDropdownBtn.style.display = 'flex';
                 // Close auth modal on sign in
                 const authModal = document.getElementById('auth-modal');
                 if (authModal) authModal.classList.remove('active');
-                
+
                 // Fetch profile
                 const { data: profile } = await supabaseClient.from('profiles').select('*').eq('id', user.id).single();
-                
+
                 if (usernameInput) usernameInput.value = (profile && profile.username) ? profile.username : '';
                 if (emailInput) emailInput.value = user.email || '';
 
@@ -2247,26 +2391,26 @@
                     }
                 }
             } else {
-                if(authText) authText.textContent = 'Sign In';
+                if (authText) authText.textContent = 'Sign In';
                 if (accountDropdownBtn) accountDropdownBtn.style.display = 'none';
-                
+
                 if (usernameInput) usernameInput.value = '';
                 if (emailInput) emailInput.value = '';
                 if (avatarPreview) {
                     avatarPreview.src = '#';
                     avatarPreview.style.display = 'none';
                 }
-                
+
                 if (navbarAvatarContainer) {
                     navbarAvatarContainer.innerHTML = defaultAvatarSvg;
                 }
-                
+
                 // If on account tab, switch back to chat
                 const panelAccount = document.getElementById('panel-account');
                 if (panelAccount && panelAccount.classList.contains('active')) {
                     switchTab('chat');
                 }
-                
+
                 // Clear active chat to prevent previous user's messages from showing
                 chats = [];
                 activeChatId = '';
@@ -2333,7 +2477,7 @@
         }
 
         // --- ACCOUNT MANAGEMENT FUNCTIONS ---
-        
+
         async function updateProfileInfo() {
             if (!currentUser) return;
             const username = document.getElementById('account-username').value;
@@ -2421,33 +2565,33 @@
         async function handleAvatarSelect(event) {
             const file = event.target.files[0];
             if (!file || !currentUser) return;
-            
+
             if (file.size > 5 * 1024 * 1024) {
                 alert("File size exceeds the 5MB limit.");
                 return;
             }
-            
+
             const validTypes = ['image/jpeg', 'image/jpg', 'image/png'];
             if (!validTypes.includes(file.type)) {
                 alert("Only JPG, JPEG, and PNG files are allowed.");
                 return;
             }
-            
+
             // Upload to Supabase Storage bucket 'avatars'
             const fileExt = file.name.split('.').pop();
             const fileName = `${currentUser.id}-${Math.random()}.${fileExt}`;
             const filePath = `${currentUser.id}/${fileName}`;
-            
+
             const { error: uploadError } = await supabaseClient.storage.from('avatars').upload(filePath, file);
             if (uploadError) {
                 alert("Error uploading avatar: " + uploadError.message);
                 // Note: User needs to create 'avatars' bucket in Supabase and set it to public.
                 return;
             }
-            
+
             const { data } = supabaseClient.storage.from('avatars').getPublicUrl(filePath);
             const avatarUrl = data.publicUrl;
-            
+
             // Update profile with new avatar URL
             const { error: updateError } = await supabaseClient.from('profiles').update({ avatar_url: avatarUrl }).eq('id', currentUser.id);
             if (updateError) {
@@ -2472,7 +2616,7 @@
         function toggleAuthMode(e) {
             e.preventDefault();
             isSignUpMode = !isSignUpMode;
-            
+
             const signupFields = document.getElementById('auth-signup-fields');
             const tocField = document.getElementById('auth-toc-field');
             const title = document.getElementById('auth-modal-title');
@@ -2480,7 +2624,7 @@
             const toggleText = document.getElementById('auth-toggle-text');
             const toggleLink = document.getElementById('auth-toggle-link');
             const pwdHint = document.getElementById('auth-password-hint');
-            
+
             if (isSignUpMode) {
                 signupFields.style.display = 'block';
                 tocField.style.display = 'flex';
@@ -2514,7 +2658,7 @@
             const password = document.getElementById('auth-password').value;
             const errDiv = document.getElementById('auth-error');
             errDiv.style.display = 'none';
-            
+
             if (!email || !password) {
                 errDiv.textContent = "Email and password are required.";
                 errDiv.style.display = 'block';
@@ -2537,15 +2681,15 @@
             const country = document.getElementById('auth-country').value;
             const tocChecked = document.getElementById('auth-toc-check').checked;
             const errDiv = document.getElementById('auth-error');
-            
+
             errDiv.style.display = 'none';
-            
+
             if (!username || !country || !email || !password) {
                 errDiv.textContent = "All fields are required.";
                 errDiv.style.display = 'block';
                 return;
             }
-            
+
             if (password.length < 8) {
                 errDiv.textContent = "Password must be at least 8 characters long.";
                 errDiv.style.display = 'block';
@@ -2557,9 +2701,9 @@
                 errDiv.style.display = 'block';
                 return;
             }
-            
-            const { data, error } = await supabaseClient.auth.signUp({ 
-                email, 
+
+            const { data, error } = await supabaseClient.auth.signUp({
+                email,
                 password,
                 options: {
                     data: {
@@ -2575,10 +2719,10 @@
                 errDiv.textContent = "Account created successfully! Check your email for a confirmation link, or log in if auto-confirmed.";
                 errDiv.style.display = 'block';
                 errDiv.style.color = "var(--banner-connected-text)";
-                
+
                 // Switch back to sign in
                 setTimeout(() => {
-                    if(isSignUpMode) toggleAuthMode(new Event('click'));
+                    if (isSignUpMode) toggleAuthMode(new Event('click'));
                     document.getElementById('auth-email').value = email;
                     document.getElementById('auth-password').value = password;
                 }, 3000);
@@ -2637,7 +2781,7 @@
         // VIEW & TAB CONTROLLER
         function switchTab(tabName) {
             const panels = document.querySelectorAll('.tab-panel');
-            
+
             // Handle sidebar active states (if they still exist)
             const chatTab = document.getElementById('sidebar-tab-chat');
             if (chatTab) {
@@ -2763,7 +2907,7 @@
             localStorage.setItem(STORAGE_KEYS.MAX_TOKENS, maxTokens);
 
             // Update Global state
-            appConfig = { 
+            appConfig = {
                 provider, apiKey, customUrl, model: modelName, systemPrompt, maxTokens
             };
 
@@ -2821,7 +2965,7 @@
         async function loadChats() {
             try {
                 const storedActiveId = localStorage.getItem('nexuschat_active_chat');
-                
+
                 if (currentUser) {
                     const { data, error } = await supabaseClient.from('chats').select('*').order('updated_at', { ascending: false });
                     if (!error && data) {
@@ -2831,7 +2975,7 @@
                     const storedSessions = localStorage.getItem('nexuschat_sessions');
                     if (storedSessions) chats = JSON.parse(storedSessions);
                 }
-                
+
                 // Migrate old conversation if present (local only)
                 if (!currentUser) {
                     const oldConv = localStorage.getItem(STORAGE_KEYS.CONVERSATION);
@@ -2850,7 +2994,7 @@
                         }
                     }
                 }
-                
+
                 if (chats.length === 0) {
                     createNewChat(true); // silent create on load
                 } else {
@@ -2861,7 +3005,7 @@
                     }
                     const activeChat = chats.find(c => c.id === activeChatId);
                     conversationHistory = activeChat.messages || [];
-                    
+
                     renderSidebarHistory();
                     renderActiveChat();
                 }
@@ -2873,7 +3017,7 @@
 
         async function saveChats() {
             localStorage.setItem('nexuschat_active_chat', activeChatId);
-            
+
             if (currentUser) {
                 const activeChat = chats.find(c => c.id === activeChatId);
                 if (activeChat) {
@@ -2901,14 +3045,14 @@
                 model: appConfig.model,
                 timestamp: Date.now()
             };
-            
+
             chats.unshift(newChatObj);
             activeChatId = newId;
             conversationHistory = newChatObj.messages;
-            
+
             saveChats();
             renderSidebarHistory();
-            
+
             if (!isInitial) {
                 renderActiveChat();
                 switchTab('chat');
@@ -2918,12 +3062,12 @@
 
         function renderActiveChat() {
             messagesContainer.innerHTML = '';
-            
+
             const activeChat = chats.find(c => c.id === activeChatId);
             if (!activeChat) return;
-            
+
             document.getElementById('active-chat-title').textContent = activeChat.title;
-            
+
             if (activeChat.messages.length === 0) {
                 messagesContainer.innerHTML = `
                     <div class="welcome-message" id="welcome-message">
@@ -2948,13 +3092,13 @@
 
         function switchChat(id) {
             if (id === activeChatId) return;
-            
+
             activeChatId = id;
             const activeChat = chats.find(c => c.id === activeChatId);
             if (activeChat) {
                 conversationHistory = activeChat.messages;
             }
-            
+
             saveChats();
             renderSidebarHistory();
             renderActiveChat();
@@ -2964,12 +3108,12 @@
 
         async function deleteChat(id, event) {
             if (event) event.stopPropagation();
-            
+
             if (currentUser) {
                 const { error } = await supabaseClient.from('chats').delete().eq('id', id);
                 if (error) console.error("Supabase Delete Error:", error);
             }
-            
+
             if (chats.length <= 1) {
                 const singleChat = chats[0];
                 singleChat.title = 'New Chat';
@@ -2981,18 +3125,18 @@
                 renderActiveChat();
                 return;
             }
-            
+
             const index = chats.findIndex(c => c.id === id);
             if (index === -1) return;
-            
+
             chats.splice(index, 1);
-            
+
             if (id === activeChatId) {
                 const nextActiveIndex = index < chats.length ? index : chats.length - 1;
                 activeChatId = chats[nextActiveIndex].id;
                 conversationHistory = chats[nextActiveIndex].messages;
             }
-            
+
             saveChats();
             renderSidebarHistory();
             renderActiveChat();
@@ -3004,7 +3148,7 @@
                     const { error } = await supabaseClient.from('chats').delete().eq('user_id', currentUser.id);
                     if (error) console.error("Supabase Clear Error:", error);
                 }
-                
+
                 chats = [];
                 activeChatId = '';
                 createNewChat(true);
@@ -3016,18 +3160,18 @@
         function renderSidebarHistory() {
             const listEl = document.getElementById('history-list');
             if (!listEl) return;
-            
+
             listEl.innerHTML = '';
-            
+
             chats.forEach(chat => {
                 const item = document.createElement('div');
                 item.className = `history-item${chat.id === activeChatId ? ' active' : ''}`;
                 item.onclick = () => switchChat(chat.id);
-                
+
                 const titleSpan = document.createElement('span');
                 titleSpan.className = 'history-item-title';
                 titleSpan.textContent = chat.title;
-                
+
                 const deleteBtn = document.createElement('button');
                 deleteBtn.className = 'history-item-delete';
                 deleteBtn.title = 'Delete chat';
@@ -3037,7 +3181,7 @@
                         <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
                     </svg>
                 `;
-                
+
                 item.appendChild(titleSpan);
                 item.appendChild(deleteBtn);
                 listEl.appendChild(item);
@@ -3061,7 +3205,7 @@
             const sidebar = document.getElementById('app-sidebar');
             const overlay = document.getElementById('sidebar-overlay');
             if (!sidebar || !overlay) return;
-            
+
             if (isOpen) {
                 sidebar.classList.add('open');
                 overlay.classList.add('open');
@@ -3075,9 +3219,9 @@
         function toggleDesktopSidebar() {
             const sidebar = document.getElementById('app-sidebar');
             if (!sidebar) return;
-            
+
             sidebar.classList.toggle('collapsed');
-            
+
             // Save state in localStorage
             const isCollapsed = sidebar.classList.contains('collapsed');
             localStorage.setItem('nexuschat_sidebar_collapsed', isCollapsed ? 'true' : 'false');
@@ -3098,30 +3242,30 @@
         function setTheme(theme) {
             document.documentElement.setAttribute('data-theme', theme);
             localStorage.setItem('nexuschat_theme', theme);
-            
+
             const iconSvg = document.getElementById('theme-icon-svg');
             const toggleText = document.getElementById('theme-toggle-text');
             const settingsIcon = document.getElementById('settings-theme-icon');
             const settingsText = document.getElementById('settings-theme-text');
-            
+
             const lightSvgHtml = `<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
                 <path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zM2 13h2a1 1 0 1 0 0-2H2a1 1 0 1 0 0 2zm18 0h2a1 1 0 1 0 0-2h-2a1 1 0 1 0 0 2zM11 2v2a1 1 0 1 0 2 0V2a1 1 0 1 0-2 0zm0 18v2a1 1 0 1 0 2 0v-2a1 1 0 1 0-2 0zM5.99 4.58a1 1 0 1 0-1.41 1.41l1.41 1.41a1 1 0 1 0 1.41-1.41L5.99 4.58zm12.02 12.02a1 1 0 1 0-1.41 1.41l1.41 1.41a1 1 0 1 0 1.41-1.41l-1.41-1.41zM5.99 19.42a1 1 0 1 0 1.41-1.41l-1.41-1.41a1 1 0 1 0-1.41 1.41l1.41 1.41zm12.02-12.02a1 1 0 1 0 1.41-1.41l-1.41-1.41a1 1 0 1 0-1.41 1.41l1.41 1.41z"/>
             </svg>`;
-            
+
             const darkSvgHtml = `<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
                 <path d="M12 3c.132 0 .263 0 .393.007a7.5 7.5 0 0 0 7.92 12.446A9 9 0 1 1 12 3z"/>
             </svg>`;
-            
+
             if (theme === 'light') {
                 if (toggleText) toggleText.textContent = 'Day Mode';
                 if (iconSvg) iconSvg.innerHTML = `<path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zM2 13h2a1 1 0 1 0 0-2H2a1 1 0 1 0 0 2zm18 0h2a1 1 0 1 0 0-2h-2a1 1 0 1 0 0 2zM11 2v2a1 1 0 1 0 2 0V2a1 1 0 1 0-2 0zm0 18v2a1 1 0 1 0 2 0v-2a1 1 0 1 0-2 0zM5.99 4.58a1 1 0 1 0-1.41 1.41l1.41 1.41a1 1 0 1 0 1.41-1.41L5.99 4.58zm12.02 12.02a1 1 0 1 0-1.41 1.41l1.41 1.41a1 1 0 1 0 1.41-1.41l-1.41-1.41zM5.99 19.42a1 1 0 1 0 1.41-1.41l-1.41-1.41a1 1 0 1 0-1.41 1.41l1.41 1.41zm12.02-12.02a1 1 0 1 0 1.41-1.41l-1.41-1.41a1 1 0 1 0-1.41 1.41l1.41 1.41z"/>`;
-                
+
                 if (settingsText) settingsText.textContent = 'Switch to Night Mode';
                 if (settingsIcon) settingsIcon.innerHTML = darkSvgHtml;
             } else {
                 if (toggleText) toggleText.textContent = 'Night Mode';
                 if (iconSvg) iconSvg.innerHTML = `<path d="M12 3c.132 0 .263 0 .393.007a7.5 7.5 0 0 0 7.92 12.446A9 9 0 1 1 12 3z"/>`;
-                
+
                 if (settingsText) settingsText.textContent = 'Switch to Day Mode';
                 if (settingsIcon) settingsIcon.innerHTML = lightSvgHtml;
             }
@@ -3215,7 +3359,7 @@
                 copyPromptBtn.style.cssText = 'background: none; border: none; color: rgba(255,255,255,0.45); cursor: pointer; font-size: 0.72rem; display: flex; align-items: center; gap: 3px; padding: 2px 4px; border-radius: 4px;';
                 copyPromptBtn.title = 'Copy prompt';
                 copyPromptBtn.onclick = () => {
-                    const textToCopy = Array.isArray(content) ? content.filter(p=>p.type==='text').map(p=>p.text).join('\n') : content;
+                    const textToCopy = Array.isArray(content) ? content.filter(p => p.type === 'text').map(p => p.text).join('\n') : content;
                     navigator.clipboard.writeText(textToCopy).then(() => {
                         copyPromptBtn.innerHTML = `✓ Copied`;
                         setTimeout(() => { copyPromptBtn.innerHTML = `<svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg> Copy`; }, 1500);
@@ -3241,7 +3385,7 @@
             if (!isUser) {
                 const toolsRow = document.createElement('div');
                 toolsRow.style.cssText = 'display: flex; align-items: center; justify-content: space-between; margin-top: 5px;';
-                
+
                 if (modelReturned) {
                     const badge = document.createElement('div');
                     badge.className = 'model-badge';
@@ -3249,7 +3393,7 @@
                     badge.style.margin = '0';
                     toolsRow.appendChild(badge);
                 }
-                
+
                 const regenBtn = document.createElement('button');
                 regenBtn.innerHTML = `↻ Regenerate`;
                 regenBtn.style.cssText = 'background: none; border: none; color: var(--text-muted); cursor: pointer; padding: 4px; border-radius: 4px; margin-right: 10px; font-size: 0.75rem; display: flex; align-items: center; gap: 4px;';
@@ -3276,10 +3420,10 @@
                 speakerBtn.innerHTML = playSvg;
                 speakerBtn.title = 'Read Aloud';
                 speakerBtn.style.cssText = 'background: none; border: none; color: var(--text-muted); cursor: pointer; padding: 4px; border-radius: 4px;';
-                
+
                 speakerBtn.onclick = async () => {
                     const isPlaying = (window.speechSynthesis.speaking && speakerBtn.classList.contains('playing')) || (speakerBtn.currentAudio && !speakerBtn.currentAudio.paused);
-                    
+
                     if (isPlaying) {
                         window.speechSynthesis.cancel();
                         if (speakerBtn.currentAudio) {
@@ -3298,7 +3442,7 @@
                                 btn.currentAudio.pause();
                             }
                         });
-                        
+
                         speakerBtn.classList.add('playing');
                         speakerBtn.innerHTML = stopSvg;
 
@@ -3340,7 +3484,7 @@
                         }
                     }
                 };
-                
+
                 toolsRow.appendChild(speakerBtn);
                 bubbleContainer.appendChild(toolsRow);
             }
@@ -3460,7 +3604,7 @@
                 }
             }
             conversationHistory.push({ role: 'user', content: payloadContent });
-            
+
             // Clear attachments immediately after sending
             clearAttachments();
 
@@ -3836,7 +3980,7 @@
             }
 
             const reader = new FileReader();
-            reader.onload = function(e) {
+            reader.onload = function (e) {
                 pendingAttachment = {
                     type: 'image',
                     content: e.target.result
@@ -3855,7 +3999,7 @@
             if (!file) return;
 
             const reader = new FileReader();
-            reader.onload = function(e) {
+            reader.onload = function (e) {
                 pendingAttachment = {
                     type: 'file',
                     content: e.target.result,
@@ -3890,16 +4034,16 @@
             recognition = new SpeechRec();
             recognition.continuous = true;
             recognition.interimResults = true;
-            
-            recognition.onstart = function() {
+
+            recognition.onstart = function () {
                 originalMicInput = chatInput.value;
                 document.getElementById('voice-input-btn').innerHTML = waveformHtml;
             };
 
-            recognition.onresult = function(event) {
+            recognition.onresult = function (event) {
                 let interimTranscript = '';
                 let finalTranscript = '';
-                
+
                 for (let i = event.resultIndex; i < event.results.length; ++i) {
                     if (event.results[i].isFinal) {
                         finalTranscript += event.results[i][0].transcript;
@@ -3907,17 +4051,17 @@
                         interimTranscript += event.results[i][0].transcript;
                     }
                 }
-                
+
                 chatInput.value = originalMicInput + (originalMicInput ? ' ' : '') + finalTranscript + interimTranscript;
                 autoResizeInput();
             };
-            
-            recognition.onerror = function() {
+
+            recognition.onerror = function () {
                 document.getElementById('voice-input-btn').innerHTML = micSvg;
                 document.getElementById('voice-input-btn').style.color = 'var(--error-text)';
             };
-            
-            recognition.onend = function() {
+
+            recognition.onend = function () {
                 document.getElementById('voice-input-btn').innerHTML = micSvg;
                 document.getElementById('voice-input-btn').style.color = 'var(--text-secondary)';
                 recognition = null; // force re-init to handle continuous
@@ -3931,16 +4075,16 @@
                 recognition = new SpeechRec();
                 recognition.continuous = true;
                 recognition.interimResults = true;
-                
-                recognition.onstart = function() {
+
+                recognition.onstart = function () {
                     originalMicInput = chatInput.value;
                     document.getElementById('voice-input-btn').innerHTML = waveformHtml;
                 };
 
-                recognition.onresult = function(event) {
+                recognition.onresult = function (event) {
                     let interimTranscript = '';
                     let finalTranscript = '';
-                    
+
                     for (let i = event.resultIndex; i < event.results.length; ++i) {
                         if (event.results[i].isFinal) {
                             finalTranscript += event.results[i][0].transcript;
@@ -3948,18 +4092,18 @@
                             interimTranscript += event.results[i][0].transcript;
                         }
                     }
-                    
+
                     chatInput.value = originalMicInput + (originalMicInput ? ' ' : '') + finalTranscript + interimTranscript;
                     if (finalTranscript) originalMicInput += (originalMicInput ? ' ' : '') + finalTranscript;
                     autoResizeInput();
                 };
-                
-                recognition.onerror = function() {
+
+                recognition.onerror = function () {
                     document.getElementById('voice-input-btn').innerHTML = micSvg;
                     document.getElementById('voice-input-btn').style.color = 'var(--error-text)';
                 };
-                
-                recognition.onend = function() {
+
+                recognition.onend = function () {
                     document.getElementById('voice-input-btn').innerHTML = micSvg;
                     document.getElementById('voice-input-btn').style.color = 'var(--text-secondary)';
                 };
@@ -3994,7 +4138,7 @@
                 alert('No messages to export.');
                 return;
             }
-            
+
             let mdContent = `# ${activeChat.title}\n\n`;
             activeChat.messages.forEach(msg => {
                 const role = msg.role === 'user' ? 'You' : 'Assistant';
@@ -4009,7 +4153,7 @@
                 }
                 mdContent += `### ${role}\n${textContent}\n\n`;
             });
-            
+
             const blob = new Blob([mdContent], { type: 'text/markdown' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
@@ -4033,25 +4177,25 @@
 
         async function regenerateMessage() {
             if (conversationHistory.length === 0) return;
-            
+
             // Remove the last assistant message
             if (conversationHistory[conversationHistory.length - 1].role === 'assistant') {
                 conversationHistory.pop();
             }
-            
+
             // Sync with current chat object
             const activeChat = chats.find(c => c.id === activeChatId);
             if (activeChat) {
                 activeChat.messages = conversationHistory;
                 saveChats();
             }
-            
+
             // Re-render UI to remove the last message
             renderActiveChat();
-            
+
             // Show Typing Loader
             showTypingLoader();
-            
+
             try {
                 const responseData = await fetchLLMResponse();
                 removeTypingLoader();
